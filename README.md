@@ -24,4 +24,12 @@ Version 2, added timers for led/buzzer, and loop, but found out that software se
 but learned that ESP8266 only has two timers, one dedicated to wifi, and the other being used by 
 the PMS 5003 sensor under software serial. 
 
-Version 3 **in process**, offload warning buzzer, led and timer function to an ATTiny 85
+Version 3, offload warning buzzer, led and timer function to an ATTiny 85
+Credit to www.technoblogy.com/show?KVO - Simple Tones for ATtiny
+due to prescaler limits on the Tiny, used a modified version of their TinyTone() code.
+
+warning pin is pulled high in software, on pin 3
+LED on pin 2, current limited with 220 ohm resistor, with 1 flash per second
+buzzer on pin 1, with chirp every 30 seconds (no resistor)
+used 1x 0.1 uF ceramic cap between VCC and GND
+wired VCC to 3.3V
